@@ -11,7 +11,7 @@
   * ESLint
   * Prettier - Code formatter
 
-## Step 1 - to create a demo project with `create-react-app`
+## Step 1 - to create a `demo` project with `create-react-app`
 
 `create-react-app` could be installed globally through yarn. However, the frequency for using is relative lower than any other global commands. 
 
@@ -28,6 +28,10 @@ Actually `yarn create react-app demo` is equivalent to:
 ```shell
 $ yarn global add create-react-app
 $ create-react-app demo
+```
+
+Then we switch into `demo` directory
+```shell
 $ cd demo
 ```
 
