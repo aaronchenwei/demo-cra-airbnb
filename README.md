@@ -55,7 +55,7 @@ trim_trailing_whitespace = false
 ## Step 3 - to add `prettier`
 
 ```shell
-$ yarn add husky lint-staged prettier
+$ yarn add -D husky lint-staged prettier
 ```
 
 Then create a `prettier` configuration file `.prettierrc`:
