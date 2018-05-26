@@ -13,7 +13,7 @@
 
 ## Step 1 - to create a `demo` project with `create-react-app`
 
-`create-react-app` could be installed globally through yarn. However, the frequency for using is relative lower than any other global commands. 
+`create-react-app` could be installed globally through yarn. However, the frequency for using is relative lower than any other global commands.
 
 `yarn` has support for using create-react-app without first installing the binary via
 
@@ -31,6 +31,7 @@ $ create-react-app demo
 ```
 
 Then we switch into `demo` directory
+
 ```shell
 $ cd demo
 ```
@@ -67,7 +68,7 @@ Then create a `prettier` configuration file `.prettierrc`:
 }
 ```
 
-Add to package.json:
+And then patch `package.json`:
 
 ```patch
 +"lint-staged": {
@@ -81,7 +82,25 @@ Add to package.json:
     "start": "react-scripts start",
 ```
 
-Format entire project using:
+```json
+{
+  "lint-staged": {
+    "src/**/*.{js,jsx,json,css}": [
+      "prettier --config .prettierrc --write",
+      "git add"
+    ]
+  },
+  "scripts": {
+    "precommit": "lint-staged",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
+```
+
+We could format entire project using:
 
 ```shell
 $ yarn prettier --config .prettierrc --write "src/**/*.{js,jsx,css}"
@@ -95,6 +114,7 @@ $ yarn add --dev babel-eslint eslint-plugin-prettier eslint-config-prettier
 ```
 
 Create `.eslintrc.js`
+
 ```javascript
 module.exports = {
   env: {
@@ -121,21 +141,23 @@ module.exports = {
     },
   },
 };
-
 ```
 
 For file `src/registerServiceWorker.js`:
+
 ```patch
 + /* eslint-disable */
 // In production, we register a service worker to serve assets from local cache.
 ```
 
 To run eslint for existing code
+
 ```shell
 $ yarn eslint --ext=js --ext=jsx --fix .
 ```
 
 Modify `src/index.js`:
+
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -167,7 +189,6 @@ const App = () => (
 );
 
 export default App;
-
 ```
 
 Rename `src/App.test.js` to `src/App.test.jsx`
