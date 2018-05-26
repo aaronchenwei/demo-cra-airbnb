@@ -59,7 +59,7 @@ trim_trailing_whitespace = false
 $ yarn add -D husky lint-staged prettier
 ```
 
-Then create a `prettier` configuration file `.prettierrc`:
+To create a `prettier` configuration file `.prettierrc`:
 
 ```javascript
 {
@@ -67,6 +67,8 @@ Then create a `prettier` configuration file `.prettierrc`:
   "trailingComma": "es5"
 }
 ```
+
+To create a file named `.prettierignore` that `prettier` could ignore processing. We could put `package.json` into ignore list.
 
 And then patch `package.json`:
 
@@ -82,7 +84,9 @@ And then patch `package.json`:
     "start": "react-scripts start",
 ```
 
-```json
+Now `package.json` look like below.
+
+```javascript
 {
   "lint-staged": {
     "src/**/*.{js,jsx,json,css}": [
