@@ -96,7 +96,7 @@ Now `package.json` look like below.
 We could format entire project using:
 
 ```shell
-$ yarn prettier --config .prettierrc --write "src/**/*.{js,jsx,css}"
+$ yarn pretty-quick
 ```
 
 ## Step 4 - to add `eslint` and `eslint-config-airbnb`
