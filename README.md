@@ -2,14 +2,14 @@
 
 ## Prerequisite
 
-* node
-* yarn
-* Visual Studio Code (with following extenions)
-  * Babel JavaScript
-  * Theme - Oceanic Next
-  * EditorConfig for VS Code
-  * ESLint
-  * Prettier - Code formatter
+- node
+- yarn
+- Visual Studio Code (with following extenions)
+  - Babel JavaScript
+  - Theme - Oceanic Next
+  - EditorConfig for VS Code
+  - ESLint
+  - Prettier - Code formatter
 
 ## Step 1 - to create a `demo` project with `create-react-app`
 
@@ -56,7 +56,7 @@ trim_trailing_whitespace = false
 ## Step 3 - to add `prettier`
 
 ```shell
-$ yarn add -D husky lint-staged prettier
+$ yarn add --dev husky prettier pretty-quick
 ```
 
 To create a `prettier` configuration file `.prettierrc`:
@@ -73,14 +73,8 @@ To create a file named `.prettierignore` that `prettier` could ignore processing
 And then patch `package.json`:
 
 ```patch
-+"lint-staged": {
-+  "src/**/*.{js,jsx,json,css}": [
-+    "prettier --config .prettierrc --write",
-+    "git add"
-+  ]
-+},
 "scripts": {
-+    "precommit": "lint-staged",
++    "precommit": "pretty-quick --staged",
     "start": "react-scripts start",
 ```
 
@@ -88,14 +82,9 @@ Now `package.json` look like below.
 
 ```javascript
 {
-  "lint-staged": {
-    "src/**/*.{js,jsx,json,css}": [
-      "prettier --config .prettierrc --write",
-      "git add"
-    ]
-  },
+
   "scripts": {
-    "precommit": "lint-staged",
+    "precommit": "pretty-quick --staged",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
