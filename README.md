@@ -1,4 +1,4 @@
-# react-cra-airbnb
+# demo-cra-airbnb
 
 ## Prerequisite
 
