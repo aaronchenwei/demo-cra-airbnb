@@ -2,6 +2,7 @@
   "name": "demo-cra-airbnb",
   "version": "0.2.0",
   "private": true,
+  "homepage": "https://aaronchenwei.github.io/demo-cra-airbnb",
   "dependencies": {
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
@@ -17,16 +18,20 @@
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-prettier": "^2.6.2",
     "eslint-plugin-react": "^7.10.0",
+    "gh-pages": "^1.2.0",
     "husky": "^0.14.3",
     "prettier": "^1.13.7",
     "pretty-quick": "^1.6.0",
-    "react-app-rewired": "^1.5.2"
+    "react-app-rewired": "^1.5.2",
+    "yarn-or-npm": "^2.0.4"
   },
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject",
-    "precommit": "pretty-quick --staged"
+    "precommit": "pretty-quick --staged",
+    "predeploy": "yarn-or-npm run build",
+    "deploy": "gh-pages -d build"
   }
 }
