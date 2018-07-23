@@ -116,9 +116,19 @@ module.exports = {
     es6: true,
     node: true,
   },
-  extends: ['airbnb', 'prettier'],
+  extends: ['airbnb', 'prettier', 'prettier/react'],
   plugins: ['prettier'],
+  parser: 'babel-eslint',
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+  },
   rules: {
+    'no-unused-vars': [
+      'warn',
+      { vars: 'all', args: 'after-used', ignoreRestSiblings: true },
+    ],
     'prettier/prettier': [
       'error',
       {
@@ -126,12 +136,6 @@ module.exports = {
         trailingComma: 'es5',
       },
     ],
-  },
-  parser: 'babel-eslint',
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
   },
 };
 ```
